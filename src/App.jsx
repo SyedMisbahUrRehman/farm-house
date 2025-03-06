@@ -26,25 +26,47 @@ const cuisineImages = [
   "https://images.unsplash.com/photo-1608198093002-ad4e005484ec?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   "https://images.unsplash.com/photo-1578911373434-0cb395d2cbfb?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 ];
+const navLinks = [
+  { id: "home", label: "Home" },
+  { id: "about", label: "About" },
+  { id: "rooms", label: "Rooms" },
+  { id: "cuisine", label: "Cuisine" },
+  { id: "contact", label: "Contact" },
+];
 
 const App = () => {
-  const [activeSection, setActiveSection] = useState('home');
+  const [activeSection, setActiveSection] = useState(null);
   const [showTopButton, setShowTopButton] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  const scrollToSection = (sectionId) => {
-    document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
-    setActiveSection(sectionId);
-    setIsMobileMenuOpen(false);
-  };
 
   useEffect(() => {
     const handleScroll = () => {
       setShowTopButton(window.scrollY > 300);
+
+      let currentSection = "home";
+      for (const link of navLinks) {
+        const section = document.getElementById(link.id);
+        if (section) {
+          const rect = section.getBoundingClientRect();
+          if (rect.top <= 100 && rect.bottom > 100) {
+            currentSection = link.id;
+            break;
+          }
+        }
+      }
+      setActiveSection(currentSection);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Set active section on mount
+
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const scrollToSection = (sectionId) => {
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+    setIsMobileMenuOpen(false);
+  };
 
   return (
     <div className="font-serif text-gray-800 bg-white">
@@ -56,19 +78,21 @@ const App = () => {
             <span className="hidden sm:inline">Willow Creek Farmhouse</span>
             <span className="sm:hidden">WCF</span>
           </div>
+
           {/* Desktop Navigation */}
           <div className="hidden md:block space-x-6">
-            {['home', 'about', 'rooms', 'cuisine', 'contact'].map(section => (
+            {navLinks.map(({ id, label }) => (
               <button
-                key={section}
-                onClick={() => scrollToSection(section)}
-                className={`capitalize hover:text-green-700 transition-colors 
-                  ${activeSection === section ? 'text-green-800 font-semibold' : ''}`}
+                key={id}
+                onClick={() => scrollToSection(id)}
+                className={`capitalize hover:text-green-700 transition-colors ${activeSection === id ? "text-green-800 font-semibold" : ""
+                  }`}
               >
-                {section}
+                {label}
               </button>
             ))}
           </div>
+
           {/* Mobile Menu Toggle */}
           <div className="md:hidden">
             <button
@@ -79,22 +103,24 @@ const App = () => {
             </button>
           </div>
         </div>
+
         {/* Mobile Navigation Menu */}
         {isMobileMenuOpen && (
           <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-lg">
-            {['home', 'about', 'rooms', 'cuisine', 'contact'].map(section => (
+            {navLinks.map(({ id, label }) => (
               <button
-                key={section}
-                onClick={() => scrollToSection(section)}
-                className={`block w-full text-left px-4 py-3 capitalize hover:bg-green-50 
-                  ${activeSection === section ? 'text-green-800 font-semibold' : ''}`}
+                key={id}
+                onClick={() => scrollToSection(id)}
+                className={`block w-full text-left px-4 py-3 capitalize hover:bg-green-50 ${activeSection === id ? "text-green-800 font-semibold" : ""
+                  }`}
               >
-                {section}
+                {label}
               </button>
             ))}
           </div>
         )}
       </nav>
+
 
       {/* Hero Section */}
       <section id="home" className="relative h-screen">
