@@ -1,23 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import {
-  FaLeaf,
-  FaHome,
-  FaUtensils,
-  FaMapMarkerAlt,
-  FaEnvelope,
-  FaInstagram,
-  FaFacebook,
-  FaTwitter,
-  FaArrowUp,
-  FaBars,
-  FaTimes
-} from 'react-icons/fa';
-import Hero from './components/Hero';
-import About from './components/About';
-import Rooms from './components/Rooms';
-import Cuisine from './components/Cuisine';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
+import { FaLeaf, FaArrowUp, FaBars, FaTimes } from 'react-icons/fa';
+import { Hero, About, Rooms, Cuisine, Contact } from './components';
 
 // Dummy data for the website
 const heroImage = "https://images.unsplash.com/photo-1472396961693-142e6e269027?q=80&w=1852&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
@@ -126,7 +109,6 @@ const App = () => {
           </div>
         )}
       </nav>
-
 
       {/* Hero Section */}
       <Hero heroImage={heroImage} />
