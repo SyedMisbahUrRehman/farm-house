@@ -38,7 +38,7 @@ const App = () => {
   };
 
   return (
-    <div className="font-serif text-gray-800 bg-white">
+    <div className="font-sans text-gray-800 bg-white">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
