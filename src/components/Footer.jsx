@@ -21,7 +21,7 @@ export default function Footer() {
                     <a href="https://x.com/" className="hover:text-green-300 transition-colors"><FaSquareXTwitter /></a>
                 </div>
             </div>
-            <div className=" mx-auto px-4 pt-8  text-center text-sm text-white/80">
+            <div className=" mx-auto px-4 pt-8  text-center text-xs text-white/80">
                 <p>© {currentYear} All Rights Reserved. Developed by <a href="https://nediantechnologies.com" className="underline hover:text-white transition-colors text-nowrap">Nedian Technologies</a></p>
             </div>
         </footer>
