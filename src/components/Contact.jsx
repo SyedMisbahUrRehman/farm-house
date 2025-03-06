@@ -1,11 +1,25 @@
 import React from 'react'
-import { FaEnvelope } from 'react-icons/fa'
+import { FaCheckCircle, FaEnvelope } from 'react-icons/fa'
 import { useForm, ValidationError } from '@formspree/react';
 
 export default function Contact() {
     const [state, handleSubmit] = useForm("mzzepdbq");
     if (state.succeeded) {
-        return <p>Thanks for joining!</p>;
+        return (
+            <section id="contact" className="py-20">
+                <div className="container mx-auto px-4">
+                    <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-green-800">
+                        <FaEnvelope className="inline-block mr-4 text-green-700" />
+                        Contact Us
+                    </h2>
+                    <div className="max-w-2xl mx-auto bg-white shadow-md rounded-lg p-6 md:p-12 text-center">
+                        <FaCheckCircle className="text-green-700 text-5xl mx-auto mb-6" size={64} />
+                        <h3 className="text-2xl font-bold text-gray-800 mb-2">Message Sent!</h3>
+                        <p className="text-gray-600 mb-6">Thank you for contacting us. We'll get back to you soon.</p>
+                    </div>
+                </div>
+            </section>
+        );
     }
     return (
         <section id="contact" className="py-20">
