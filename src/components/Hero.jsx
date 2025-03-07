@@ -13,7 +13,7 @@ export default function Hero({ heroImage }) {
               HAH Farmhouse
             </h1>
             <p className="text-base sm:text-lg md:text-xl max-w-2xl mb-8 text-shadow">
-              Welcome to our Farmhouse, the perfect destination for 
+              The perfect destination for 
               picnics, celebrations, weddings, and unforgettable fun-filled
               events amidst nature’s beauty!
             </p>
