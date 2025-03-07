@@ -3,7 +3,7 @@ import { FaUtensils } from 'react-icons/fa'
 
 export default function Cuisine({ cuisineImages }) {
     return (
-        <section id="cuisine" className="py-20 bg-gray-50">
+        <section id="cuisine" className="py-20 bg-gray-100">
             <div className="container mx-auto px-4">
                 <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-green-800">
                     <FaUtensils className="inline-block mr-4 text-green-700" />
@@ -13,8 +13,7 @@ export default function Cuisine({ cuisineImages }) {
                     {cuisineImages.map((image, index) => (
                         <div
                             key={index}
-                            className="bg-white rounded-lg overflow-hidden shadow-lg transform transition hover:scale-105"
-                        >
+                            className="bg-white rounded-lg overflow-hidden shadow-lg transform transition hover:scale-105">
                             <img
                                 src={image}
                                 alt={`Cuisine ${index + 1}`}

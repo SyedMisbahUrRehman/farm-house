@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FaLeaf, FaArrowUp, FaBars, FaTimes } from 'react-icons/fa';
-import { Hero, About, Rooms, Cuisine, Contact, Footer } from './components';
+import { Hero, About, Rooms, Cuisine, Contact, Footer, Gallery } from './components';
 import { heroImage, aboutImage, roomImages, cuisineImages, navLinks } from './developmentContent/constants';
 
 const App = () => {
@@ -44,8 +44,8 @@ const App = () => {
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <div className="text-2xl font-bold text-green-800 flex items-center">
             <FaLeaf className="mr-2" />
-            <span className="hidden sm:inline">Willow Creek Farmhouse</span>
-            <span className="sm:hidden">WCF</span>
+            <span className="hidden sm:inline">HAH Farmhouse</span>
+            <span className="sm:hidden">HAHF</span>
           </div>
 
           {/* Desktop Navigation */}
@@ -104,6 +104,9 @@ const App = () => {
 
       {/* Contact Section */}
       <Contact />
+
+      {/* Gallery Section */}
+      <Gallery />
 
       {/* Move to Top Button */}
       {showTopButton && (
