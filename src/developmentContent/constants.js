@@ -18,13 +18,19 @@ export const galleryImages = [
   "https://images.unsplash.com/photo-1661000902726-ebda7e06a23a?q=80&w=1631&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   "https://images.unsplash.com/photo-1554995207-c18c203602cb?q=80&w=1800&auto=format&fit=crop",
   "https://images.unsplash.com/photo-1506545632994-973468d2bb18?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1472396961693-142e6e269027?q=80&w=1852&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1608198093002-ad4e005484ec?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1661000902726-ebda7e06a23a?q=80&w=1631&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1554995207-c18c203602cb?q=80&w=1800&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1506545632994-973468d2bb18?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
 ];
 
 export const navLinks = [
-    { id: "home", label: "Home" },
+    // { id: "home", label: "Home" },
     { id: "about", label: "About" },
     { id: "rooms", label: "Rooms" },
     { id: "cuisine", label: "Cuisine" },
     { id: "contact", label: "Contact" },
-    { id: "gallery", label: "Gallery" },
+    // { id: "gallery", label: "Gallery" },
 ];
