@@ -3,19 +3,18 @@ import { galleryImages } from "../developmentContent/constants";
 import { FaImages } from "react-icons/fa";
 
 const Gallery = ({ images = [] }) => {
-  // Ensure images array is always defined
   const [galleryImagesState, setGalleryImagesState] = useState([]);
 
   useEffect(() => {
     if (images.length > 0) {
-      setGalleryImagesState(images);
+      setGalleryImagesState(images.slice(0, 3));
     } else {
-      setGalleryImagesState(galleryImages);
+      setGalleryImagesState(galleryImages.slice(0, 3));
     }
   }, [images]);
 
   return (
-    <section id="gallery" className="py-10 bg-gray-100">
+    <section className="py-10 bg-gray-100">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-green-800">
           <FaImages className="inline-block mr-4 text-green-700" />
@@ -31,6 +30,7 @@ const Gallery = ({ images = [] }) => {
                 src={image}
                 alt={`Cuisine ${index + 1}`}
                 className="w-full h-64 object-cover"
+                loading="lazy"
               />
               <div className="p-6">
                 <h3 className="text-xl md:text-2xl font-semibold mb-4">
@@ -49,6 +49,9 @@ const Gallery = ({ images = [] }) => {
                     ][index % 3]
                   }
                 </p>
+                <button className="text-green-800 hover:text-green-600 transition-colors text-sm md:text-base">
+                  View
+                </button>
               </div>
             </div>
           ))}

@@ -33,8 +33,8 @@ export default function Rooms({ roomImages }) {
                       ][index]
                     }
                   </p>
-                  <button className="text-green-700 hover:text-green-900 transition-colors text-sm md:text-base">
-                    View Details
+                  <button className="text-green-800 hover:text-green-600 transition-colors text-sm md:text-base">
+                    View
                   </button>
                 </div>
               </div>

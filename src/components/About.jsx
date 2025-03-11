@@ -6,7 +6,7 @@ export default function About({ aboutImage }) {
         <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
           <div className="w-full md:w-1/2 md:pr-12 mb-8 md:mb-0">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-green-800">
-              Our Services
+              About Us
             </h2>
             <p className="text-base md:text-lg mb-4 leading-relaxed">
               HAH farmhouse is a wonderful place where you can enjoy your
