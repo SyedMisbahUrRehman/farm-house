@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaTimes, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { galleryTitles, galleryDescriptions } from '../developmentContent/constants';
 
 const Modal = ({ isOpen, onClose, images, currentIndex, onNext, onPrevious }) => {
     if (!isOpen) return null;
@@ -28,29 +29,6 @@ const Modal = ({ isOpen, onClose, images, currentIndex, onNext, onPrevious }) =>
 
     const currentImage = images[currentIndex];
     const safeIndex = Math.min(currentIndex, images.length - 1);
-    const titles = [
-        "Countryside Views",
-        "Garden Sanctuary",
-        "Farm Fresh Dining",
-        "Lavender Fields",
-        "Artisan Kitchen",
-        "Rustic Charm",
-        "Meadow Retreat",
-        "Harvest Time",
-        "Peaceful Escape"
-    ];
-
-    const descriptions = [
-        "Breathtaking panoramic views of rolling hills and valleys.",
-        "Tranquil garden spaces perfect for relaxation and reflection.",
-        "Fresh farm-to-table meals prepared with local ingredients.",
-        "Stunning purple lavender fields in full bloom.",
-        "Our professional kitchen crafting delicious homemade meals.",
-        "Charming rustic architecture with modern comforts.",
-        "Serene meadow landscapes perfect for nature walks.",
-        "Seasonal harvest showcasing the bounty of our farm.",
-        "A peaceful escape from the hustle and bustle of city life."
-    ];
 
     return (
         <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4">
@@ -58,7 +36,7 @@ const Modal = ({ isOpen, onClose, images, currentIndex, onNext, onPrevious }) =>
                 {/* Header */}
                 <div className="flex justify-between items-center p-4 border-b">
                     <h3 className="text-xl font-semibold text-green-800">
-                        {titles[safeIndex] || `Gallery Image ${safeIndex + 1}`}
+                        {galleryTitles[safeIndex] || `Gallery Image ${safeIndex + 1}`}
                     </h3>
                     <button
                         onClick={onClose}
@@ -101,7 +79,7 @@ const Modal = ({ isOpen, onClose, images, currentIndex, onNext, onPrevious }) =>
                 {/* Description */}
                 <div className="p-6">
                     <p className="text-gray-600 text-sm md:text-base">
-                        {descriptions[safeIndex] || "Beautiful farm house scenery and experiences."}
+                        {galleryDescriptions[safeIndex] || "Beautiful farm house scenery and experiences."}
                     </p>
 
                     {/* Image Counter */}
