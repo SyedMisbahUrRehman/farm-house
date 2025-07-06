@@ -50,7 +50,13 @@ const App = () => {
   }, []);
 
   const scrollToSection = (sectionId) => {
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+    if (sectionId === "home") {
+      // For home, scroll to top of page
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      // For other sections, scroll to the element
+      document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+    }
     setIsMobileMenuOpen(false);
   };
 
