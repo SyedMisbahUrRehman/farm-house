@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FaLeaf, FaArrowUp, FaBars, FaTimes, FaTimes as FaClose } from "react-icons/fa";
+import { FaLeaf, FaArrowUp, FaBars, FaTimes, FaTimes as FaClose, FaImages } from "react-icons/fa";
 import {
   Hero,
   About,
@@ -14,6 +14,9 @@ import {
   roomImages,
   cuisineImages,
   navLinks,
+  galleryImages,
+  galleryTitles,
+  galleryDescriptions,
 } from "./developmentContent/constants";
 
 const App = () => {
@@ -21,6 +24,7 @@ const App = () => {
   const [showTopButton, setShowTopButton] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isGalleryModalOpen, setIsGalleryModalOpen] = useState(false);
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -69,6 +73,10 @@ const App = () => {
     setIsGalleryModalOpen(false);
   };
 
+
+
+
+
   return (
     <div className="font-sans text-gray-800 bg-white">
       {/* Navigation */}
@@ -100,13 +108,10 @@ const App = () => {
               </button>
             ))}
 
-            {/* Gallery Modal Button */}
+            {/* Gallery Button */}
             <button
               onClick={openGalleryModal}
-              className={`capitalize hover:text-green-800 transition-colors ${activeSection === "gallery"
-                  ? "text-green-800 font-semibold"
-                  : ""
-                }`}
+              className="capitalize hover:text-green-800 transition-colors"
             >
               Gallery
             </button>
@@ -143,7 +148,7 @@ const App = () => {
                 {label}
               </button>
             ))}
-            {/* Gallery Modal Button for Mobile */}
+            {/* Gallery Button for Mobile */}
             <button
               onClick={openGalleryModal}
               className="block w-full text-left px-4 py-3 capitalize hover:bg-green-50"
@@ -164,21 +169,47 @@ const App = () => {
 
       {/* Gallery Modal */}
       {isGalleryModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-lg max-w-2xl w-full max-h-[80vh] overflow-y-auto">
-            <div className="flex justify-between items-center p-6 border-b">
-              <h2 className="text-2xl font-bold text-green-900">Gallery</h2>
+        <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-lg max-w-6xl w-full max-h-[90vh] overflow-hidden">
+            {/* Header */}
+            <div className="flex justify-between items-center p-4 border-b">
+              <h2 className="text-2xl font-bold text-green-800">
+                <FaImages className="inline-block mr-4 text-green-700" />
+                Gallery
+              </h2>
               <button
                 onClick={closeGalleryModal}
-                className="text-gray-500 hover:text-gray-700 text-xl"
+                className="text-gray-500 hover:text-gray-700 transition-colors"
               >
-                <FaClose />
+                <FaTimes size={24} />
               </button>
             </div>
-            <div className="p-6">
-              <p className="text-gray-600 text-center">
-                Gallery content will be added here.
-              </p>
+
+            {/* Gallery Grid */}
+            <div className="p-6 overflow-y-auto max-h-[calc(90vh-80px)]">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {galleryImages.map((image, index) => (
+                  <div
+                    key={index}
+                    className="bg-white rounded-lg overflow-hidden shadow-lg transform transition hover:scale-105 cursor-pointer border"
+                  >
+                    <img
+                      src={image}
+                      alt={`Gallery ${index + 1}`}
+                      className="w-full h-48 object-cover"
+                      loading="lazy"
+                    />
+                    <div className="p-4">
+                      <h3 className="text-lg font-semibold mb-2 text-green-800">
+                        {galleryTitles[index]}
+                      </h3>
+                      <p className="text-gray-600 text-sm">
+                        {galleryDescriptions[index]}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
